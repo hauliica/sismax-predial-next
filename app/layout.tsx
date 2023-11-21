@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={cn("min-h-screen bg-background mx-auto font-sans antialiased flex max-w-screen flex-col overflow-x-hidden", fontSans.variable)}>
+      <body className={cn("min-h-screen bg-background mx-auto font-sans antialiased", fontSans.variable)}>
         <NavMenu />
         {children}
         <FooterSection />

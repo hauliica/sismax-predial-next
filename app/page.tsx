@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {HeroImage} from "@/assets/HeroImage";
 import {VentajasSVG} from "@/assets/VentajasIllustration";
@@ -15,6 +15,7 @@ import {
   RocketIcon,
 } from "@radix-ui/react-icons";
 import {useState} from "react";
+import Link from "next/link";
 
 const defaultFeatures = [
   {
@@ -140,7 +141,8 @@ function ImportanciaSection() {
     <div className="w-full ">
       <div className="container px-6 lg:px-8 py-10">
         <div className="text-center mb-16">
-          <h2 className="text-xs font-semibold text-orange-500 tracking-wide uppercase">La Importancia de Pagar Nuestro Predial</h2>
+          <h2 className="text-xs font-semibold text-orange-500 tracking-wide uppercase">La Importancia de Pagar Nuestro
+            Predial</h2>
           <p className="mt-2 text-3xl font-bold text-gray-800 sm:text-4xl">Un Compromiso con la Comunidad</p>
           <p className="mt-3 text-lg text-gray-500">Tu contribución a través de los impuestos de propiedad es vital para
             mantener y mejorar los servicios locales.</p>
@@ -286,7 +288,11 @@ function CTASection() {
           </div>
           <p
             className="mt-4 text-xs text-white opacity-[0.8] transition-opacity duration-[400ms] ease-in-out group-hover:opacity-[1]">
-            Your privacy is protected, unsubscribe anytime.
+            ¿No conoces tu Cuenta-Folio?
+            <Link href="/solicita" className="ml-1 underline text-amber-300 contrast-200">
+               Solicitalo Aqui
+            </Link>
+            .
           </p>
         </form>
       </div>
@@ -403,3 +409,4 @@ export function ServiceBlock({title, description, svgPath, index}: ServiceBlockP
     </div>
   );
 }
+
