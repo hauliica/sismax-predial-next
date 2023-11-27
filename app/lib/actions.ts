@@ -4,7 +4,7 @@ import { z } from "zod";
 import { redirect } from "next/navigation";
 
 import { prisma } from "@/prisma/client";
-import { encryptJson, generateRandomString, rsaEncryption } from "./banorte";
+import { encryptJson, rsaEncryption } from "./banorte";
 
 const CuentaFolioSchema = z.object({
   cuentaFolio: z
