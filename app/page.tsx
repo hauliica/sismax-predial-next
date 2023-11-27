@@ -448,7 +448,7 @@ interface ServiceBlockProps {
   index: number;
 }
 
-export function ServiceBlock({
+function ServiceBlock({
   title,
   description,
   icon,
