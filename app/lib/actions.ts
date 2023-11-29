@@ -83,7 +83,7 @@ export async function encryptBanorte() {
     "merchantId": "7652823",
     "name": "a7652823",
     "password": "#O2oLz1%",
-    "mode": "AUT",
+    "mode": "PRD",
     "controlNumber": "PADM99302J",
     "terminalId": "76528231",
     "amount": "1.00",

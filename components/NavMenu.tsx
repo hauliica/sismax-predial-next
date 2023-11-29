@@ -24,10 +24,14 @@ function NavMenu() {
                   className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Contacto</Link>
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
+            <Link href="#pago">
             <Button variant="ghost" size="sm"
                     className="text-orange-600 border-orange-600 border bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground">¡Paga
               Ahora!</Button>
+            </Link>
+            <Link href="/solicita">
             <Button size="sm" className="ml-4">Solicita tu Cuenta-Folio</Button>
+            </Link>
           </div>
         </div>
       </nav>

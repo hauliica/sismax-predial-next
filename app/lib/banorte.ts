@@ -50,6 +50,51 @@ export function encryptJson(jsonData: string) {
   };
 }
 
+export function decryptJson(
+  ivHex: string,
+  saltHex: string,
+  passphrase: string,
+  encryptedContent: string,
+) {
+  const ivBytes = forge.util.hexToBytes(ivHex);
+  const saltBytes = forge.util.hexToBytes(saltHex);
+
+  const key = forge.pkcs5.pbkdf2(
+    passphrase,
+    saltBytes,
+    1000,
+    16,
+    forge.md.sha1.create(),
+  );
+
+  const encBytes = forge.util.decode64(encryptedContent);
+
+  const ivBuffer = forge.util.createBuffer(ivBytes, "raw");
+
+  const decipher = forge.cipher.createDecipher("AES-CTR", key);
+  decipher.start({ iv: ivBytes });
+  decipher.update(forge.util.createBuffer(encBytes, "raw"));
+
+  if (decipher.finish() === false) {
+    throw new Error("Failed to decrypt encrypted data");
+  }
+
+  const decryptedBytes = decipher.output.getBytes();
+  const decryptedData = forge.util.decodeUtf8(decryptedBytes);
+
+  console.log({
+    decryptedData,
+    decryptedBytes,
+    decipher,
+  });
+
+  try {
+    return JSON.parse(decryptedData);
+  } catch (e) {
+    throw new Error("Failed to parse decrypted data to JSON");
+  }
+}
+
 export function rsaEncryption(aesKey: string) {
   const certPem = readFileSync(process.env.CERTIFICATE_PATH, "utf-8");
   const cert = forge.pki.certificateFromPem(certPem);
