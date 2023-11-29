@@ -32,14 +32,14 @@ export default async function Page({
   console.log(params);
 
   return (
-    <section className="bg-gray-100 p-4">
-      <div className="mx-auto container">
+    <section className="bg-gray-100 lg:p-4">
+      <div className="mx-auto lg:container">
         <div>
-          <h1 className="scroll-m-20 text-2xl font-semibold tracking-tight">
-            Dashboard
+          <h1 className="scroll-m-20 py-4 text-2xl font-semibold tracking-tight">
+            Datos del Contribuyente y Predio
           </h1>
         </div>
-        <div className="grid gap-4 bg-gray-100 p-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 bg-gray-100 lg:p-6 md:grid-cols-2 lg:grid-cols-4">
           {/* Card 1: Perfil del Contribuyente */}
           <Card className="col-span-2">
             <CardHeader>
