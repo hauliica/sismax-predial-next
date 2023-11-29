@@ -129,7 +129,9 @@ function HeroSection() {
               pagar tu impuesto predial en línea, sin tener que salir de casa.
               Aprovecha esta nueva modalidad y evita filas y tiempos de espera.
             </p>
+            <Link href="#pago">
             <Button size="lg">¡PAGA AHORA!</Button>
+            </Link>
           </div>
 
           {/* Illustrative Content */}

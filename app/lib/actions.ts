@@ -30,7 +30,7 @@ export async function verificaCuentaFolio(formData: FormData) {
   console.log(cuenta, folio);
 
   // Check if exists
-  const predio = await prisma.padron.count({
+  const predio = await prisma.Padron.count({
     where: {
       AND: [
         {
@@ -57,7 +57,7 @@ export async function verificaCuentaFolio(formData: FormData) {
 export async function fetchPredio(cuentaFolio: string) {
   const [cuenta, folio] = [cuentaFolio.slice(0, 6), cuentaFolio.slice(6, 12)];
 
-  const predio = await prisma.padron.findFirst({
+  const predio = await prisma.Padron.findFirst({
     where: {
       AND: [
         {
