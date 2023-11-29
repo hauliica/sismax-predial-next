@@ -19,8 +19,7 @@ function FooterSection() {
             </div>
 
             <p className="mb-6 text-gray-500 sm:pr-8">
-              Filler text is dummy text which has no meaning however looks very
-              similar to real text.
+              Acuña Tiene Con Que
             </p>
 
             <div className="flex gap-4">
@@ -108,7 +107,7 @@ function FooterSection() {
                   href="#"
                   className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                 >
-                  Overview
+                  Link
                 </Link>
               </div>
 
@@ -117,7 +116,7 @@ function FooterSection() {
                   href="#"
                   className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                 >
-                  Solutions
+                  Link
                 </Link>
               </div>
 
@@ -126,7 +125,7 @@ function FooterSection() {
                   href="#"
                   className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                 >
-                  Pricing
+                  Link
                 </Link>
               </div>
 
@@ -135,7 +134,7 @@ function FooterSection() {
                   href="#"
                   className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                 >
-                  Customers
+                  Link
                 </Link>
               </div>
             </nav>
@@ -151,7 +150,7 @@ function FooterSection() {
                   href="#"
                   className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                 >
-                  About
+                  Acerca De
                 </Link>
               </div>
 
@@ -160,7 +159,7 @@ function FooterSection() {
                   href="#"
                   className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                 >
-                  Investor Relations
+                  Link
                 </Link>
               </div>
 
@@ -169,7 +168,7 @@ function FooterSection() {
                   href="#"
                   className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                 >
-                  Jobs
+                  Link
                 </Link>
               </div>
 
@@ -203,7 +202,7 @@ function FooterSection() {
                   href="#"
                   className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                 >
-                  Contact
+                  Contacto
                 </Link>
               </div>
 
@@ -212,7 +211,7 @@ function FooterSection() {
                   href="#"
                   className="text-gray-500 transition duration-100 hover:text-indigo-500 active:text-indigo-600"
                 >
-                  Documentation
+                  Link
                 </Link>
               </div>
 

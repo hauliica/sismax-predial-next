@@ -41,7 +41,7 @@ export default async function Page({
         </div>
         <div className="grid gap-4 bg-gray-100 p-6 md:grid-cols-2 lg:grid-cols-4">
           {/* Card 1: Perfil del Contribuyente */}
-          <Card className="col-span-1 lg:col-span-2">
+          <Card className="col-span-2">
             <CardHeader>
               <CardTitle className="">Perfil del Contribuyente</CardTitle>
               <CardDescription>

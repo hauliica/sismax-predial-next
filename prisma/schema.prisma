@@ -7,17 +7,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model auditoria {
-  idauditor Int    @id @default(autoincrement())
-  idusuario Int
-  fechaa    String @db.Char(10)
-  horaa     String @db.Char(5)
-  tabla     String @db.VarChar(30)
-  idaccion  Int
-  registro  String @db.VarChar(30)
-  cambios   String @db.VarChar(400)
-}
-
 model banortereturn {
   ID_CONTROL     Int     @id @default(autoincrement())
   CONTROL_NUMBER String? @db.VarChar(30)
@@ -38,31 +27,49 @@ model banortereturn {
 }
 
 model cb {
-  folio String  @id @db.Char(7)
+  folio String  @id @default("") @db.Char(7)
   mes   String? @db.Char(2)
   cb    String? @db.Char(30)
 }
 
 model codigos {
-  folio String  @id @db.Char(7)
+  folio String  @id @default("") @db.Char(7)
   mes   String? @db.Char(2)
   cb    String? @db.Char(30)
 }
 
-model doctrine_migration_versions {
-  version        String    @id
-  executed_at    DateTime? @db.DateTime(0)
-  execution_time Int?
+model foliocontrol {
+  idcontrol Int     @id @default(autoincrement())
+  fecha     String? @db.VarChar(10)
+  hora      String? @db.VarChar(5)
+  cuenta    String? @db.VarChar(6)
+  folio     String? @db.VarChar(6)
+  nombrefc  String? @db.VarChar(120)
+  correofc  String? @db.VarChar(120)
+
+  @@index([cuenta], map: "cuenta")
+  @@index([folio], map: "folio")
 }
 
-model ejercicio {
+model Auditoria {
+  idauditor Int    @id @default(autoincrement())
+  idusuario Int
+  fechaa    String @db.Char(10)
+  horaa     String @db.Char(5)
+  tabla     String @db.VarChar(30)
+  idaccion  Int
+  registro  String @db.VarChar(30)
+  cambios   String @db.VarChar(400)
+}
+
+model Ejercicio {
   idejercicio    Int     @id @default(autoincrement())
   ejercicio      Int?
   administracion String? @db.VarChar(50)
 }
 
-model empresa {
-  idempresa   String @id @db.Char(1)
+model Empresa {
+  idempresa   String @id @default("0") @db.Char(1)
   emprfc      String @db.Char(12)
   emprazon    String @db.VarChar(100)
   empunidad   String @db.VarChar(50)
@@ -81,52 +88,24 @@ model empresa {
   @@index([idempresa], map: "EmpresaID")
 }
 
-model estadisticas {
+model Estadisticas {
   idesta    Int     @id @default(autoincrement())
   fechaesta String? @db.Char(10)
   horaesta  String? @db.Char(5)
   nivel     String? @db.Char(2)
 }
 
-model foliocontrol {
-  idcontrol Int     @id @default(autoincrement())
-  fecha     String? @db.VarChar(10)
-  hora      String? @db.VarChar(5)
-  cuenta    String? @db.VarChar(6)
-  folio     String? @db.VarChar(6)
-  nombrefc  String? @db.VarChar(120)
-  correofc  String? @db.VarChar(120)
-
-  @@index([cuenta], map: "cuenta")
-  @@index([folio], map: "folio")
-}
-
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
-model messenger_messages {
-  id           BigInt    @id @default(autoincrement())
-  body         String    @db.LongText
-  headers      String    @db.LongText
-  queue_name   String    @db.VarChar(190)
-  created_at   DateTime  @db.DateTime(0)
-  available_at DateTime  @db.DateTime(0)
-  delivered_at DateTime? @db.DateTime(0)
-
-  @@index([delivered_at], map: "IDX_75EA56E016BA31DB")
-  @@index([available_at], map: "IDX_75EA56E0E3BD61CE")
-  @@index([queue_name], map: "IDX_75EA56E0FB7336F0")
-}
-
-model notificador {
+model Notificador {
   idnoti  Int    @id @default(autoincrement())
   nombren String @db.VarChar(200)
 }
 
-model padeudos1 {
+model Padeudos1 {
   idpadron  Int    @id @default(autoincrement())
   acuenta   String @db.Char(6)
   afolio    String @db.Char(6)
-  ejercicio String @db.Char(4)
-  bim       Int
+  ejercicio String @default("0") @db.Char(4)
+  bim       Int    @default(0)
   imp       Float  @default(0.00)
   rec       Float  @default(0.00)
   croja     Float  @default(0.00)
@@ -137,12 +116,12 @@ model padeudos1 {
   total     Float  @default(0.00)
 }
 
-model padeudos1_febrero {
+model Padeudos1_febrero {
   idpadron  Int    @id @default(autoincrement())
   acuenta   String @db.Char(6)
   afolio    String @db.Char(6)
-  ejercicio String @db.Char(4)
-  bim       Int
+  ejercicio String @default("0") @db.Char(4)
+  bim       Int    @default(0)
   imp       Float  @default(0.00)
   rec       Float  @default(0.00)
   croja     Float  @default(0.00)
@@ -152,15 +131,15 @@ model padeudos1_febrero {
   poliza    Float
   total     Float  @default(0.00)
 
-  @@map("padeudos1 febrero")
+  @@map("Padeudos1 febrero")
 }
 
-model padeudos1x_copy {
+model Padeudos1x_copy {
   idpadron  Int    @id @default(autoincrement())
   acuenta   String @db.Char(6)
   afolio    String @db.Char(6)
-  ejercicio String @db.Char(4)
-  bim       Int
+  ejercicio String @default("0") @db.Char(4)
+  bim       Int    @default(0)
   imp       Float  @default(0.00)
   rec       Float  @default(0.00)
   croja     Float  @default(0.00)
@@ -171,50 +150,12 @@ model padeudos1x_copy {
   total     Float  @default(0.00)
 }
 
-model padeudos2 {
+model Padeudos2 {
   idpadron  Int    @id @default(autoincrement())
   acuenta   String @db.Char(6)
   afolio    String @db.Char(6)
-  ejercicio String @db.Char(4)
-  bim       Int
-  imp       Float  @default(0.00)
-  rec       Float  @default(0.00)
-  croja     Float  @default(0.00)
-  chis      Float  @default(0.00)
-  bom       Float  @default(0.00)
-  dif       Float  @default(0.00)
-  poliza    Float
-  desimp    Float
-  desrec    Float
-  total     Float  @default(0.00)
-}
-
-model padeudos2_febrero {
-  idpadron  Int    @id @default(autoincrement())
-  acuenta   String @db.Char(6)
-  afolio    String @db.Char(6)
-  ejercicio String @db.Char(4)
-  bim       Int
-  imp       Float  @default(0.00)
-  rec       Float  @default(0.00)
-  croja     Float  @default(0.00)
-  chis      Float  @default(0.00)
-  bom       Float  @default(0.00)
-  dif       Float  @default(0.00)
-  poliza    Float
-  desimp    Float
-  desrec    Float
-  total     Float  @default(0.00)
-
-  @@map("padeudos2 febrero")
-}
-
-model padeudos2_copy {
-  idpadron  Int    @id @default(autoincrement())
-  acuenta   String @db.Char(6)
-  afolio    String @db.Char(6)
-  ejercicio String @db.Char(4)
-  bim       Int
+  ejercicio String @default("0") @db.Char(4)
+  bim       Int    @default(0)
   imp       Float  @default(0.00)
   rec       Float  @default(0.00)
   croja     Float  @default(0.00)
@@ -227,12 +168,32 @@ model padeudos2_copy {
   total     Float  @default(0.00)
 }
 
-model padeudos2x_copy {
+model Padeudos2_febrero {
   idpadron  Int    @id @default(autoincrement())
   acuenta   String @db.Char(6)
   afolio    String @db.Char(6)
-  ejercicio String @db.Char(4)
-  bim       Int
+  ejercicio String @default("0") @db.Char(4)
+  bim       Int    @default(0)
+  imp       Float  @default(0.00)
+  rec       Float  @default(0.00)
+  croja     Float  @default(0.00)
+  chis      Float  @default(0.00)
+  bom       Float  @default(0.00)
+  dif       Float  @default(0.00)
+  poliza    Float
+  desimp    Float
+  desrec    Float
+  total     Float  @default(0.00)
+
+  @@map("Padeudos2 febrero")
+}
+
+model Padeudos2_copy {
+  idpadron  Int    @id @default(autoincrement())
+  acuenta   String @db.Char(6)
+  afolio    String @db.Char(6)
+  ejercicio String @default("0") @db.Char(4)
+  bim       Int    @default(0)
   imp       Float  @default(0.00)
   rec       Float  @default(0.00)
   croja     Float  @default(0.00)
@@ -245,12 +206,12 @@ model padeudos2x_copy {
   total     Float  @default(0.00)
 }
 
-model padeudos2x_copy1 {
+model Padeudos2x_copy {
   idpadron  Int    @id @default(autoincrement())
   acuenta   String @db.Char(6)
   afolio    String @db.Char(6)
-  ejercicio String @db.Char(4)
-  bim       Int
+  ejercicio String @default("0") @db.Char(4)
+  bim       Int    @default(0)
   imp       Float  @default(0.00)
   rec       Float  @default(0.00)
   croja     Float  @default(0.00)
@@ -263,7 +224,25 @@ model padeudos2x_copy1 {
   total     Float  @default(0.00)
 }
 
-model padron {
+model Padeudos2x_copy1 {
+  idpadron  Int    @id @default(autoincrement())
+  acuenta   String @db.Char(6)
+  afolio    String @db.Char(6)
+  ejercicio String @default("0") @db.Char(4)
+  bim       Int    @default(0)
+  imp       Float  @default(0.00)
+  rec       Float  @default(0.00)
+  croja     Float  @default(0.00)
+  chis      Float  @default(0.00)
+  bom       Float  @default(0.00)
+  dif       Float  @default(0.00)
+  poliza    Float
+  desimp    Float
+  desrec    Float
+  total     Float  @default(0.00)
+}
+
+model Padron {
   pcuenta        String  @db.Char(6)
   pfolio         String  @db.Char(6)
   propietario    String  @db.VarChar(80)
@@ -303,7 +282,7 @@ model padron {
   @@id([pcuenta, pfolio])
 }
 
-model padron_copy {
+model Padron_copy {
   pcuenta        String  @db.Char(6)
   pfolio         String  @db.Char(6)
   propietario    String  @db.VarChar(80)
@@ -343,7 +322,7 @@ model padron_copy {
   @@id([pcuenta, pfolio])
 }
 
-model padron_marzo {
+model Padron_marzo {
   pcuenta        String  @db.Char(6)
   pfolio         String  @db.Char(6)
   propietario    String  @db.VarChar(80)
@@ -383,7 +362,7 @@ model padron_marzo {
   @@id([pcuenta, pfolio])
 }
 
-model padronfebrero {
+model Padronfebrero {
   pcuenta        String  @db.Char(6)
   pfolio         String  @db.Char(6)
   propietario    String  @db.VarChar(80)
@@ -423,7 +402,7 @@ model padronfebrero {
   @@id([pcuenta, pfolio])
 }
 
-model padronx_copy {
+model Padronx_copy {
   pcuenta        String  @db.Char(6)
   pfolio         String  @db.Char(6)
   propietario    String  @db.VarChar(80)
@@ -463,7 +442,7 @@ model padronx_copy {
   @@id([pcuenta, pfolio])
 }
 
-model padronx_copy1 {
+model Padronx_copy1 {
   pcuenta        String  @db.Char(6)
   pfolio         String  @db.Char(6)
   propietario    String  @db.VarChar(80)
@@ -503,7 +482,7 @@ model padronx_copy1 {
   @@id([pcuenta, pfolio])
 }
 
-model pagosx {
+model Pagosx {
   pindex     Int     @id @default(autoincrement())
   pcuenta    String? @db.VarChar(6)
   pfolio     String? @db.VarChar(6)
@@ -516,9 +495,9 @@ model pagosx {
   phora      String? @db.VarChar(10)
 }
 
-model panelcontrol {
+model Panelcontrol {
   idpc      String @id @db.Char(3)
-  idempresa String @db.Char(1)
+  idempresa String @default("") @db.Char(1)
   pcunidad  String @db.VarChar(100)
   eslogan   String @db.VarChar(50)
   pctitulo1 String @db.VarChar(70)
@@ -530,10 +509,10 @@ model panelcontrol {
   vigencia  String @db.VarChar(70)
 }
 
-model rcontribuyente {
+model Rcontribuyente {
   idcontribuyente Int    @id @default(autoincrement())
   cuenta          String @db.VarChar(6)
-  idtipo          Int
+  idtipo          Int    @default(0)
   nomc            String @db.VarChar(40)
   appc            String @db.VarChar(20)
   apmc            String @db.VarChar(20)
@@ -556,7 +535,7 @@ model rcontribuyente {
   idusuarioc      Int
 }
 
-model rcontrol {
+model Rcontrol {
   idrcontrol   Int    @id @default(autoincrement())
   rejercicio   Int
   rmillar      Float
@@ -600,7 +579,7 @@ model rcontrol {
   @@index([rejercicio], map: "rejercicio")
 }
 
-model rpredio {
+model Rpredio {
   idrpredio   Int     @id @default(autoincrement())
   pcuenta     String? @db.VarChar(10)
   pfolio      String? @db.VarChar(10)
@@ -626,7 +605,7 @@ model rpredio {
   pidusuario  Int?
 }
 
-model rtabla1 {
+model Rtabla1 {
   idvalorr      Int     @id @default(autoincrement())
   ejercicio     String? @db.VarChar(9)
   clave         String? @db.Char(2)
@@ -634,7 +613,7 @@ model rtabla1 {
   valoruxh      Float?
 }
 
-model solicitud {
+model Solicitud {
   indice         Int    @id @default(autoincrement())
   curpsol        String @db.Char(18)
   callesol       String @db.VarChar(60)
@@ -661,7 +640,7 @@ model solicitud {
   observaciones2 String @db.VarChar(250)
 }
 
-model solicitud2022 {
+model Solicitud2022 {
   indice         Int    @id @default(autoincrement())
   curpsol        String @db.Char(18)
   callesol       String @db.VarChar(60)
@@ -688,7 +667,7 @@ model solicitud2022 {
   observaciones2 String @db.VarChar(250)
 }
 
-model solicitud_2 {
+model Solicitud_2 {
   indice         Int    @id @default(autoincrement())
   curpsol        String @db.Char(18)
   callesol       String @db.VarChar(60)
@@ -715,7 +694,7 @@ model solicitud_2 {
   observaciones2 String @db.VarChar(250)
 }
 
-model solicitud_3 {
+model Solicitud_3 {
   indice         Int    @id @default(autoincrement())
   curpsol        String @db.Char(18)
   callesol       String @db.VarChar(60)
@@ -742,7 +721,7 @@ model solicitud_3 {
   observaciones2 String @db.VarChar(250)
 }
 
-model solicitud_4 {
+model Solicitud_4 {
   indice         Int    @id @default(autoincrement())
   curpsol        String @db.Char(18)
   callesol       String @db.VarChar(60)
@@ -769,60 +748,79 @@ model solicitud_4 {
   observaciones2 String @db.VarChar(250)
 }
 
-model taccion {
+model Tacceso {
+  idusuario Int     @id
+  acceso01  Boolean @default(dbgenerated("(b'0')")) @db.Bit(1)
+  acceso02  Boolean @default(dbgenerated("(b'0')")) @db.Bit(1)
+  a11       Boolean @default(dbgenerated("(b'0')")) @db.Bit(1)
+  a12       Boolean @default(dbgenerated("(b'0')")) @db.Bit(1)
+  a13       Boolean @default(dbgenerated("(b'0')")) @db.Bit(1)
+  a14       Boolean @default(dbgenerated("(b'0')")) @db.Bit(1)
+  a15       Boolean @default(dbgenerated("(b'0')")) @db.Bit(1)
+  a16       Boolean @db.Bit(1)
+  a17       Boolean @db.Bit(1)
+  a21       Boolean @default(dbgenerated("(b'0')")) @db.Bit(1)
+  a22       Boolean @default(dbgenerated("(b'0')")) @db.Bit(1)
+  a23       Boolean @default(dbgenerated("(b'0')")) @db.Bit(1)
+  a24       Boolean @default(dbgenerated("(b'0')")) @db.Bit(1)
+  a25       Boolean @default(dbgenerated("(b'0')")) @db.Bit(1)
+  a26       Boolean @db.Bit(1)
+}
+
+model Taccion {
   idaccionind Int    @id @default(autoincrement())
   idaccion    Int
   accion      String @db.VarChar(25)
 }
 
-model tcalle {
+model Tcalle {
   idcalle   Int    @id @default(autoincrement())
   calle     String @db.VarChar(60)
   idestatus String @default("1") @db.Char(1)
   idempresa Int
 }
 
-model tcolonia {
+model Tcolonia {
   idcolonia Int    @id @default(autoincrement())
   colonia   String @db.VarChar(50)
   cp        String @db.Char(5)
   idestatus Int
 }
 
-model tcolonia_audi {
-  idcolonia Int    @id @default(autoincrement()) @db.UnsignedInt
+model Tcolonia_Audi {
+  idcolonia Int    @id
   colonia   String @db.VarChar(60)
   cp        String @db.Char(5)
   idestatus String @db.Char(1)
   idempresa Int
 }
 
-model tcoltipo {
+model Tcoltipo {
   idtipocolind Int    @id
   idtipocol    String @db.Char(1)
   tipocol      String @db.VarChar(20)
 }
 
-model tcon {
+model Tcon {
   idtipocon Int    @id
   tipocon   String @db.VarChar(40)
 }
 
-model tconstruccion {
+model Tconstruccion {
   idconstruccion Int    @id @default(autoincrement())
   ejerciciocon   String @db.VarChar(4)
   clavecon       String @db.Char(3)
   valorcon       Float
 }
 
-model tejido {
+model Tejido {
   idejido    Int    @id @default(autoincrement())
   ejercicioe String @db.Char(4)
   ejido      String @db.VarChar(60)
   valore     Float
 }
 
-model testado {
+model Testado {
   idestado  Int    @id @default(autoincrement())
   estado    String @db.VarChar(60)
   idpais    Int
@@ -830,20 +828,20 @@ model testado {
   idempresa Int
 }
 
-model testatus {
+model Testatus {
   idestatus   Int    @id @default(autoincrement())
   tipoestatus String @db.Char(1)
   estatus     String @db.VarChar(20)
 }
 
-model testatus2 {
+model Testatus2 {
   idestatusind Int
   idestatus    String @id @db.Char(1)
   tipoestatus  String @db.Char(1)
   estatus      String @db.VarChar(20)
 }
 
-model tfuncionarios {
+model Tfuncionarios {
   idfun     Int     @id @default(autoincrement())
   fcurp     String  @db.Char(18)
   fnom      String  @db.VarChar(25)
@@ -866,7 +864,7 @@ model tfuncionarios {
   idestatus String  @db.Char(1)
 }
 
-model tincdemr {
+model Tincdemr {
   idincdemr      Int     @id @default(autoincrement())
   ejercicio      String? @db.VarChar(6)
   tipoincdem     String  @db.VarChar(10)
@@ -874,25 +872,25 @@ model tincdemr {
   valor          Int?
 }
 
-model torienta {
+model Torienta {
   idorientaind String  @id @default("") @db.Char(1)
   idorienta    String? @db.Char(1)
   orienta      String? @db.VarChar(10)
 }
 
-model tpais {
+model Tpais {
   idpais    Int    @id @default(autoincrement())
   pais      String @db.VarChar(60)
   idestatus String @default("1") @db.Char(1)
   idempresa Int
 }
 
-model tsexo {
+model Tsexo {
   idsexo Int    @id @default(autoincrement())
   sexo   String @db.VarChar(20)
 }
 
-model tsuelo {
+model Tsuelo {
   idsuelo        Int    @id @default(autoincrement())
   ejercicios     String @db.VarChar(4)
   claves         String @db.Char(2)
@@ -900,12 +898,12 @@ model tsuelo {
   valors         Float
 }
 
-model ttrata {
+model Ttrata {
   idtrata Int    @id @default(autoincrement())
   trata   String @db.VarChar(20)
 }
 
-model ucontrol {
+model Ucontrol {
   idrcontrol   Int    @id @default(autoincrement())
   rejercicio   Int
   rmillar      Float
@@ -949,7 +947,7 @@ model ucontrol {
   @@index([rejercicio], map: "rejercicio")
 }
 
-model usuarios {
+model Usuarios {
   idusuario Int    @id @default(autoincrement())
   ucurp     String @db.Char(18)
   unom      String @db.VarChar(25)
@@ -973,7 +971,7 @@ model usuarios {
   s01       String @db.Char(2)
 }
 
-model usuariost {
+model UsuariosT {
   idtipous Int    @id @default(autoincrement())
   tipou    String @db.VarChar(25)
   cateu    String @db.VarChar(25)

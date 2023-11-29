@@ -2,7 +2,6 @@
 
 import { z } from "zod";
 import { redirect } from "next/navigation";
-
 import { prisma } from "@/prisma/client";
 import { encryptJson, rsaEncryption } from "./banorte";
 
