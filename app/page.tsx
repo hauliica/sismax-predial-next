@@ -152,7 +152,7 @@ function HeroSection() {
 
 function ImportanciaSection() {
   return (
-    <div className="w-full ">
+    <div className="w-full overflow-x-hidden">
       <div className="container px-6 lg:px-8 py-10">
         <div className="text-center mb-16">
           <h2 className="text-xs font-semibold text-orange-500 tracking-wide uppercase">
@@ -214,7 +214,7 @@ function ImportanciaSection() {
 
 function VentajasSection() {
   return (
-    <div className="py-16 sm:py-8" id="ventajas">
+    <div className="py-16 sm:py-8 overflow-x-hidden" id="ventajas">
       <div className="mx-auto container px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:pr-8 lg:pt-8">
