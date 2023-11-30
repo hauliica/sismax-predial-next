@@ -4,12 +4,6 @@ import React, {useMemo, useState} from 'react';
 import {Input} from "@/components/ui/Input";
 import {Label} from "@/components/ui/Label";
 import {Button} from "@/components/ui/Button";
-import {CreditCard, FileText, Printer, Receipt, UserCircle} from "lucide-react";
-import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/Card";
-import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/Avatar";
-import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/Tooltip";
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/Table";
-import {Alert, AlertDescription, AlertTitle} from "@/components/ui/Alert";
 
 const CheckIcon = () => (
   <svg className="flex-shrink-0 w-5 h-5 text-green-300" fill="currentColor" viewBox="0 0 20 20"

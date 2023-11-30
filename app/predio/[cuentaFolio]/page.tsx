@@ -123,7 +123,7 @@ export default async function Page({
                 catastrales del predio.
               </CardDescription>
             </CardHeader>
-            <CardContent className="grid gap-1 lg:grid-cols-2 grid-cols-1">
+            <CardContent className="grid gap-4 lg:grid-cols-2 grid-cols-1">
               {/*  Domicilio del Predio*/}
               <div className="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all">
                 <HomeIcon className="mt-px h-5 w-5" />
