@@ -14,6 +14,12 @@ import {
 } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { verificaCuentaFolio } from "@/app/lib/actions";
+import {
+  AlertTriangleIcon,
+  BookIcon,
+  BuildingIcon,
+  HeartIcon,
+} from "lucide-react";
 
 const defaultFeatures = [
   {
@@ -166,29 +172,15 @@ function ImportanciaSection() {
           {/*// <!-- Service Row 1 -->*/}
           <div className="flex flex-row items-center p-6 bg-white rounded-lg shadow-sm">
             <div className="flex-shrink-0">
-              <svg
-                className="w-6 h-6 text-orange-500"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M13 16h-1v-4h1m0 0h-1V9h1m2 3h-1m-4 0H9m2 0V9h1m2 4h1v-4h-1m0 4h1v4h-1m-4 0h1v4H9m2 0h1m-1 0h-1"
-                />
-              </svg>
+              <BuildingIcon />
             </div>
             <div className="ml-4 flex-grow">
               <h3 className="text-lg font-semibold text-gray-800">
                 Servicios públicos
               </h3>
               <p className="text-base text-gray-500">
-                El impuesto predial se utiliza para financiar servicios
-                públicos como alumbrado, recolección de basura y mantenimiento
-                de calles.
+                El impuesto predial se utiliza para financiar servicios públicos
+                como alumbrado, recolección de basura y mantenimiento de calles.
               </p>
             </div>
           </div>
@@ -197,21 +189,21 @@ function ImportanciaSection() {
             title="Servicios de emergencia"
             description="Los impuestos de propiedad se utilizan para financiar servicios de
               emergencia como bomberos, policía, ambulancias, etc."
-            icon={<RocketIcon />}
+            icon={<AlertTriangleIcon />}
             index={0}
           />
           <ServiceBlock
             title="Servicios de salud"
             description="Los impuestos de propiedad se utilizan para financiar servicios de
               salud como hospitales, clínicas, centros de salud, etc."
-            icon={<RocketIcon />}
+            icon={<HeartIcon />}
             index={1}
           />
           <ServiceBlock
             title="Servicios de educación"
             description="Los impuestos de propiedad se utilizan para financiar servicios de
               educación como escuelas, universidades, bibliotecas, etc."
-            icon={<RocketIcon />}
+            icon={<BookIcon />}
             index={2}
           />
         </div>
@@ -377,71 +369,73 @@ function FAQSection() {
             Pago en Línea del Impuesto Predial.
           </p>
         </div>
-        <Accordion type="single" collapsible>
-          <AccordionItem value="item-1">
-            <AccordionTrigger>
-              ¿Qué es el impuesto predial y por qué debo pagarlo?
-            </AccordionTrigger>
-            <AccordionContent>
-              El impuesto predial es un gravamen que se aplica sobre la
-              propiedad de bienes inmuebles. Los fondos recaudados son
-              utilizados para financiar diversos servicios y obras públicas en
-              el municipio. El pago puntual de este impuesto es crucial para el
-              desarrollo y mantenimiento de la localidad.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-2">
-            <AccordionTrigger>
-              ¿Cómo puedo pagar mi impuesto predial en línea?
-            </AccordionTrigger>
-            <AccordionContent>
-              Para pagar en línea, ingresa tu Cuenta-Folio en el campo
-              correspondiente <Link href="#pago">Aqui</Link>. Luego, sigue los
-              pasos para completar el pago mediante nuestra segura pasarela de
-              pagos.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-3">
-            <AccordionTrigger>
-              ¿Qué es la Cuenta-Folio y dónde lo encuentro?
-            </AccordionTrigger>
-            <AccordionContent>
-              La Cuenta-Folio es un número único asignado a tu propiedad que
-              sirve para identificarla en el sistema. Puedes encontrar este
-              número en tus recibos anteriores de impuesto predial o en la
-              oficina del municipio.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-4">
-            <AccordionTrigger>
-              ¿Qué hago si no tengo un Cuenta-Folio?
-            </AccordionTrigger>
-            <AccordionContent>
-              Si no tienes tu Cuenta-Folio, puedes solicitarlo llenando un
-              formulario en nuestra página de{" "}
-              <Link href="/solicita">Solicitud de Cuenta-Folio</Link> Una vez
-              enviado el formulario, recibirás tu Cuenta-Folio a través del
-              método que elijas: Email o SMS.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-5">
-            <AccordionTrigger>¿Es seguro pagar en línea?</AccordionTrigger>
-            <AccordionContent>
-              Sí, la seguridad es una de nuestras principales preocupaciones.
-              Utilizamos encriptación SSL/TLS para asegurar que tus datos y
-              transacciones estén protegidos.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-6">
-            <AccordionTrigger>
-              ¿Puedo pagar en efectivo o en una tienda física?
-            </AccordionTrigger>
-            <AccordionContent>
-              Sí, ofrecemos la opción de imprimir un formato con un código de
-              barras que podrás utilizar para pagar en tiendas OXXO.
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+        <div className="w-full mx-auto">
+          <Accordion type="single" collapsible>
+            <AccordionItem value="item-1">
+              <AccordionTrigger>
+                ¿Qué es el impuesto predial y por qué debo pagarlo?
+              </AccordionTrigger>
+              <AccordionContent>
+                El impuesto predial es un gravamen que se aplica sobre la
+                propiedad de bienes inmuebles. Los fondos recaudados son
+                utilizados para financiar diversos servicios y obras públicas en
+                el municipio. El pago puntual de este impuesto es crucial para
+                el desarrollo y mantenimiento de la localidad.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-2">
+              <AccordionTrigger>
+                ¿Cómo puedo pagar mi impuesto predial en línea?
+              </AccordionTrigger>
+              <AccordionContent>
+                Para pagar en línea, ingresa tu Cuenta-Folio en el campo
+                correspondiente <Link href="#pago">Aqui</Link>. Luego, sigue los
+                pasos para completar el pago mediante nuestra segura pasarela de
+                pagos.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger>
+                ¿Qué es la Cuenta-Folio y dónde lo encuentro?
+              </AccordionTrigger>
+              <AccordionContent>
+                La Cuenta-Folio es un número único asignado a tu propiedad que
+                sirve para identificarla en el sistema. Puedes encontrar este
+                número en tus recibos anteriores de impuesto predial o en la
+                oficina del municipio.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-4">
+              <AccordionTrigger>
+                ¿Qué hago si no tengo un Cuenta-Folio?
+              </AccordionTrigger>
+              <AccordionContent>
+                Si no tienes tu Cuenta-Folio, puedes solicitarlo llenando un
+                formulario en nuestra página de{" "}
+                <Link href="/solicita">Solicitud de Cuenta-Folio</Link> Una vez
+                enviado el formulario, recibirás tu Cuenta-Folio a través del
+                método que elijas: Email o SMS.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-5">
+              <AccordionTrigger>¿Es seguro pagar en línea?</AccordionTrigger>
+              <AccordionContent>
+                Sí, la seguridad es una de nuestras principales preocupaciones.
+                Utilizamos encriptación SSL/TLS para asegurar que tus datos y
+                transacciones estén protegidos.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-6">
+              <AccordionTrigger>
+                ¿Puedo pagar en efectivo o en una tienda física?
+              </AccordionTrigger>
+              <AccordionContent>
+                Sí, ofrecemos la opción de imprimir un formato con un código de
+                barras que podrás utilizar para pagar en tiendas OXXO.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
       </div>
     </section>
   );

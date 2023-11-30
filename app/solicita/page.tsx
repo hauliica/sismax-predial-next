@@ -54,7 +54,7 @@ export default function SolicitaPage() {
         </section>
 
 
-        <section className="flex py-8 lg:py-12 2xl:px-24 items-center w-4/6 lg:px-12">
+        <section className="flex py-4 lg:py-12 px-4 2xl:px-24 items-center w-full lg:w-4/6 lg:px-12">
           <div className="w-full">
             <form onSubmit={handleSubmit}>
               {/* Información Personal section */}
