@@ -54,6 +54,9 @@ export async function verificaCuentaFolio(formData: FormData) {
   }
 }
 
+/*
+
+ */
 export async function fetchPredio(cuentaFolio: string) {
   const [cuenta, folio] = [cuentaFolio.slice(0, 6), cuentaFolio.slice(6, 12)];
 
@@ -95,26 +98,26 @@ export async function encryptBanorte() {
     "customerRef3": "",
     "customerRef4": "",
     "customerRef5": "",
-    "billToFirstName": "Saul",
-    "billToLastName": "Ochoa",
-    "billToStreet": "Alvaro Obregon",
-    "billToStreetNumber": "1255",
+    "billToFirstName": "",
+    "billToLastName": "",
+    "billToStreet": "",
+    "billToStreetNumber": "",
     "billToStreetNumber2": "",
-    "billToStreet2Col": "Yunuen",
-    "billToStreet2Del": "Acuna",
-    "billToCity": "ACUNA",
-    "billToState": "CO",
-    "billToCountry": "MX",
-    "billToPhoneNumber": "8771005275",
-    "billToPostalCode": "26260",
-    "billToEmail": "hauliiica@gmail.com",
+    "billToStreet2Col": "",
+    "billToStreet2Del": "",
+    "billToCity": "",
+    "billToState": "",
+    "billToCountry": "",
+    "billToPhoneNumber": "",
+    "billToPostalCode": "",
+    "billToEmail": "",
     "billToCustomerId": "",
     "billToCustomerPassword": "",
     "billToDateOfBirth": "",
     "billToHostname": "",
     "billToHttpBrowserEmail": "",
     "billToIpAddress": "",
-    "comments": "Compra a MSI",
+    "comments": "",
     "shipToFirstName": "",
     "shipToLastName": "",
     "shipToStreetNumber": "",

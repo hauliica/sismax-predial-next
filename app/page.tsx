@@ -111,14 +111,14 @@ function HeroSection() {
         </svg>
       </div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex items-center justify-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 text-center lg:text-left lg:grid-cols-2 gap-8">
           {/* Textual Content */}
           <div className="space-y-6 lg:space-y-8">
             <div className="mt-12">
               <p className="text-sm tracking-tight text-orange-600 font-semibold mb-6">
                 Estamos orgullosos de presentar
               </p>
-              <h1 className="text-4xl lg:text-5xl scroll-m-20 leading-10 uppercase pr-12 bg-blend-overlay font-black tracking-tight text-gray-900/95">
+              <h1 className="text-5xl lg:text-5xl scroll-m-20 leading-10 uppercase pr-12 bg-blend-overlay font-black tracking-tight text-gray-900/95">
                 Un nuevo método para{" "}
                 <span className="text-orange-600">pagar</span> <br></br> tu
                 predial
@@ -129,8 +129,8 @@ function HeroSection() {
               pagar tu impuesto predial en línea, sin tener que salir de casa.
               Aprovecha esta nueva modalidad y evita filas y tiempos de espera.
             </p>
-            <Link href="#pago">
-            <Button size="lg">¡PAGA AHORA!</Button>
+            <Link className="mt-4" href="#pago">
+              <Button size="lg">¡PAGA AHORA!</Button>
             </Link>
           </div>
 
@@ -185,8 +185,8 @@ function ImportanciaSection() {
               <h3 className="text-lg font-semibold text-gray-800">
                 Servicios públicos
               </h3>
-              <p className="text-sm text-gray-500">
-                Los impuestos de propiedad se utilizan para financiar servicios
+              <p className="text-base text-gray-500">
+                El impuesto predial se utiliza para financiar servicios
                 públicos como alumbrado, recolección de basura y mantenimiento
                 de calles.
               </p>
@@ -263,7 +263,10 @@ function VentajasSection() {
 
 function CTASection() {
   return (
-    <section id="pago" className=" w-full py-8 relative overflow-visible flex justify-center items-center">
+    <section
+      id="pago"
+      className=" w-full py-8 relative overflow-visible flex justify-center items-center"
+    >
       <div
         className="absolute z-10 inset-0 pointer-events-none"
         aria-hidden="true"
@@ -305,8 +308,8 @@ function CTASection() {
         </svg>
         <div className="absolute inset-0 bg-noise opacity-[0.8]"></div>
       </div>
-      <div className="relative py-16 px-24 shadow-neutral-700/90 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 rounded-xl  shadow-2xl max-w-4xl mx-auto text-center space-y-3">
-        <h2 className="text-4xl px-12 mb-2 -mt-8 drop-shadow-lg shadow-black font-extrabold text-white tracking-tight transform transition-all duration-300 ease-in-out group-hover:scale-105">
+      <div className="relative py-16 px-4 lg:px-24 shadow-neutral-700/90 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 rounded-none lg:rounded-xl  shadow-2xl max-w-4xl mx-auto text-center space-y-3">
+        <h2 className="text-4xl px:4 lg:px-12 mb-2 -mt-8 drop-shadow-lg shadow-black font-extrabold text-white tracking-tight transform transition-all duration-300 ease-in-out group-hover:scale-105">
           ¡Comienza a pagar tu predio de manera rápida y segura!
         </h2>
         <div className="py-1 px-4 inline-block bg-white bg-opacity-[15%] rounded-full">
@@ -321,7 +324,7 @@ function CTASection() {
               name="cuentaFolio"
               placeholder="Introduce tu cuenta-folio"
               aria-label="Cuenta-Folio"
-              className="w-4/5 lg:w-3/4 rounded-l-lg px-4 py-3 bg-white text-gray-800 placeholder-gray-400 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-white focus:bg-opacity-90 focus:ring-ring focus:ring-offset-orange-300"
+              className="w-4/5 lg:w-3/4 rounded-none lg:rounded-l-lg px-4 py-3 bg-white text-gray-800 placeholder-gray-400 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-white focus:bg-opacity-90 focus:ring-ring focus:ring-offset-orange-300"
               required
             />
             <button
@@ -334,7 +337,7 @@ function CTASection() {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="h-6 w-6 animate-pulse"
+                className="h-6 w-6 animate-pulse hidden lg:visible"
               >
                 <path
                   strokeLinecap="round"
@@ -383,8 +386,8 @@ function FAQSection() {
               El impuesto predial es un gravamen que se aplica sobre la
               propiedad de bienes inmuebles. Los fondos recaudados son
               utilizados para financiar diversos servicios y obras públicas en
-              el municipio. El pago puntual de este impuesto es crucial
-              para el desarrollo y mantenimiento de la localidad.
+              el municipio. El pago puntual de este impuesto es crucial para el
+              desarrollo y mantenimiento de la localidad.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
@@ -393,8 +396,9 @@ function FAQSection() {
             </AccordionTrigger>
             <AccordionContent>
               Para pagar en línea, ingresa tu Cuenta-Folio en el campo
-              correspondiente <Link href="#pago">Aqui</Link>. Luego, sigue los pasos para completar el pago mediante
-              nuestra segura pasarela de pagos.
+              correspondiente <Link href="#pago">Aqui</Link>. Luego, sigue los
+              pasos para completar el pago mediante nuestra segura pasarela de
+              pagos.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
@@ -414,7 +418,8 @@ function FAQSection() {
             </AccordionTrigger>
             <AccordionContent>
               Si no tienes tu Cuenta-Folio, puedes solicitarlo llenando un
-              formulario en nuestra página de <Link href="/solicita">Solicitud de Cuenta-Folio</Link> Una vez
+              formulario en nuestra página de{" "}
+              <Link href="/solicita">Solicitud de Cuenta-Folio</Link> Una vez
               enviado el formulario, recibirás tu Cuenta-Folio a través del
               método que elijas: Email o SMS.
             </AccordionContent>
@@ -449,13 +454,8 @@ interface ServiceBlockProps {
   index: number;
 }
 
-function ServiceBlock({
-  title,
-  description,
-  icon,
-  index,
-}: ServiceBlockProps) {
-  const rowStyle = index % 2 === 0 ? "flex-row-reverse justify-left" : "flex-row";
+function ServiceBlock({ title, description, icon, index }: ServiceBlockProps) {
+  const rowStyle = index % 2 === 0 ? "flex-row-reverse text-right" : "flex-row";
 
   return (
     <div
@@ -464,9 +464,9 @@ function ServiceBlock({
       <div className="flex-shrink-0">
         <span className="h-5 w-5 text-orange-500">{icon}</span>
       </div>
-      <div className="ml-4 order flex-grow">
+      <div className="mx-4 order flex-grow">
         <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
-        <p className="text-sm text-gray-500">{description}</p>
+        <p className="text-base text-gray-500">{description}</p>
       </div>
     </div>
   );
