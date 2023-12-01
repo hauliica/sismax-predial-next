@@ -81,7 +81,10 @@ export async function fetchPredio(cuentaFolio: string) {
   return predio;
 }
 
-export async function encryptBanorte() {
+export async function encryptBanorte(predio) {
+  const cuentaFolio = predio.pcuenta + predio.pfolio;
+  const dataFromDB = await fetchPredio(cuentaFolio);
+
   const data = {
     "merchantId": process.env.MERCHANT_ID,
     "name": process.env.NAME,
@@ -89,17 +92,17 @@ export async function encryptBanorte() {
     "mode": process.env.MODE,
     "controlNumber": "PADM99302J",
     "terminalId": process.env.TERMINAL_ID,
-    "amount": "1.00",
+    "amount": dataFromDB.imptotal2,
     "merchantName": process.env.MERCHANT_NAME,
     "merchantCity": process.env.MERCHANT_CITY,
     "lang": process.env.LANG,
-    "customerRef1": "90556104254",
+    "customerRef1": dataFromDB.pcurp,
     "customerRef2": "",
     "customerRef3": "",
     "customerRef4": "",
     "customerRef5": "",
-    "billToFirstName": "",
-    "billToLastName": "",
+    "billToFirstName": dataFromDB.pnombre,
+    "billToLastName": dataFromDB.papp,
     "billToStreet": "",
     "billToStreetNumber": "",
     "billToStreetNumber2": "",

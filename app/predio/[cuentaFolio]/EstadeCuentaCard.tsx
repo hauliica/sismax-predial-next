@@ -41,9 +41,9 @@ interface PredioPago {
   fechapag: string;
 }
 
-async function getEncryption() {
+async function getEncryption(predio) {
   try {
-    const res = await encryptBanorte();
+    const res = await encryptBanorte(predio);
 
     return res;
   } catch (error) {
@@ -55,7 +55,7 @@ export async function EstadoCuentaCard(props: { predio: PredioPago }) {
   async function empezarBanorte() {
     console.log("empezarBanorte");
     try {
-      const banData = await getEncryption()
+      const banData = await getEncryption(props.predio)
       console.log(banData);
 
       Payment.setEnv("pro");
