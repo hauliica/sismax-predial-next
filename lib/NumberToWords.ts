@@ -38,12 +38,15 @@ function convertThousands(num: number): string {
 }
 
 export default function numberToWords(amount: number | string): string {
-    // Conversion logic
     if (typeof amount === "string") {
         amount = parseFloat(amount);
     }
-    const cents = Math.round((amount - amount) * 100);
-    const amountInWords = amount > 0 ? convertThousands(amount) + ' peso' + (amount === 1 ? '' : 's') : '';
+
+    let integerPart = Math.floor(amount);
+    let fractionalPart = amount - integerPart;
+
+    const cents = Math.round(fractionalPart * 100);
+    const amountInWords = integerPart > 0 ? convertThousands(integerPart) + ' peso' + (integerPart === 1 ? '' : 's') : '';
     const centsInWords = cents > 0 ? convertTens(cents) + ' centavo' + (cents === 1 ? '' : 's') : '';
     return [amountInWords, centsInWords].filter(Boolean).join(' con ');
 }

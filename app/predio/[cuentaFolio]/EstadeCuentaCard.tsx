@@ -94,10 +94,10 @@ export async function EstadoCuentaCard(props: { predio: PredioPago }) {
             Total Adeudado
           </h6>
           <p className="text-3xl font-bold text-gray-800">
-            $ {props.predio.imptotal1}
+            $ {props.predio.imptotal2}
           </p>
           <p className="text-sm tracking-tighter capitalize text-gray-500">
-            ({numberToWords(props.predio.imptotal1)})
+            ({numberToWords(props.predio.imptotal2)})
           </p>
         </div>
         <div className="grid gap-y-4 grid-cols-2">
