@@ -14,8 +14,11 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Pago de Impuesto Predial En Línea | Presidencia Municipal de Acuña",
-  description: "Paga tu Impuesto Predial En Linea",
+  title: {
+    template: "%s | Presidencia Municipal de Acuña",
+    default: "Pago Predial En Linea",
+  },
+  description: "Paga tu predial en linea",
 };
 
 export default function RootLayout({
@@ -24,16 +27,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-        />
-      </Head>
+    <html lang="es" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen overflow-x-hidden bg-background mx-auto font-sans antialiased",
+          "font-sans min-h-screen bg-background antialiased",
           fontSans.variable,
         )}
       >

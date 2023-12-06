@@ -75,7 +75,7 @@ export function decryptJson(
   decipher.start({ iv: ivBytes });
   decipher.update(forge.util.createBuffer(encBytes, "raw"));
 
-  if (decipher.finish() === false) {
+  if (!decipher.finish()) {
     throw new Error("Failed to decrypt encrypted data");
   }
 

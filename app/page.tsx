@@ -20,6 +20,7 @@ import {
   BuildingIcon,
   HeartIcon,
 } from "lucide-react";
+import { HeroSection } from "@/components/HeroSection";
 
 const defaultFeatures = [
   {
@@ -42,64 +43,20 @@ const defaultFeatures = [
   },
 ];
 
-const importanciaList = [
-  {
-    title: "Servicios públicos",
-    description:
-      "Los impuestos de propiedad se utilizan para financiar servicios públicos como alumbrado, recolección de basura, mantenimiento de calles, etc.",
-    icon: <RocketIcon />,
-  },
-  {
-    title: "Servicios de emergencia",
-    description:
-      "Los impuestos de propiedad se utilizan para financiar servicios de emergencia como bomberos, policía, ambulancias, etc.",
-    icon: <RocketIcon />,
-  },
-  {
-    title: "Servicios de salud",
-    description:
-      "Los impuestos de propiedad se utilizan para financiar servicios de salud como hospitales, clínicas, centros de salud, etc.",
-    icon: <RocketIcon />,
-  },
-  {
-    title: "Servicios de educación",
-    description:
-      "Los impuestos de propiedad se utilizan para financiar servicios de educación como escuelas, universidades, bibliotecas, etc.",
-    icon: <RocketIcon />,
-  },
-  {
-    title: "Servicios de transporte",
-    description:
-      "Los impuestos de propiedad se utilizan para financiar servicios de transporte como carreteras, puentes, transporte público, etc.",
-    icon: <RocketIcon />,
-  },
-  {
-    title: "Servicios de recreación",
-    description:
-      "Los impuestos de propiedad se utilizan para financiar servicios de recreación como parques, centros deportivos, etc.",
-    icon: <RocketIcon />,
-  },
-  {
-    title: "Servicios de infraestructura",
-    description:
-      "Los impuestos de propiedad se utilizan para financiar servicios de infraestructura como drenaje, agua potable, etc.",
-    icon: <RocketIcon />,
-  },
-];
-
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <ImportanciaSection />
-      <VentajasSection />
-      <CTASection />
-      <FAQSection />
+      {/*<HeroSection />*/}
+      {/*<ImportanciaSection /> */}
+      {/*<VentajasSection /> */}
+      {/*<CTASection /> */}
+      {/*<FAQSection />*/}
     </>
   );
 }
 
-function HeroSection() {
+function HeroSectionComponent() {
   return (
     <section className="bg-gradient-to-b from-0% via-30% bg-white/70 bg-blend-overlay  from-orange-100  via-orange-200 to-gray-50">
       <div className="absolute inset-0 pointer-events-none overflow-y-visible">

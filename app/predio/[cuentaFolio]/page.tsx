@@ -51,7 +51,7 @@ export default async function Page({
             </CardHeader>
             <CardContent className="grid lg:grid-cols-2 lg:gap-y-4 gap-1">
               <div className="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all">
-                <UserIcon className="mt-px h-5 w-5" />
+                <UserIcon className="mt-px h-5 w-5 text-amber-500" />
                 <div className="space-y-1">
                   <p className="text-sm text-muted-foreground">
                     Nombre de Contribuyente
@@ -63,7 +63,7 @@ export default async function Page({
               </div>
               {/* Domicilio */}
               <div className="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all">
-                <HomeIcon className="mt-px h-5 w-5" />
+                <HomeIcon className="mt-px h-5 w-5 text-amber-500" />
                 <div className="space-y-1">
                   <p className="text-sm text-muted-foreground">Domicilio</p>
                   <p className="text-sm font-medium leading-none">
@@ -74,7 +74,7 @@ export default async function Page({
               </div>
               {/* CURP */}
               <div className="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all">
-                <FingerprintIcon className="mt-px h-5 w-5" />
+                <FingerprintIcon className="mt-px h-5 w-5 text-amber-500" />
                 <div className="space-y-1">
                   <p className="text-sm text-muted-foreground">CURP</p>
                   <p className="text-sm font-medium leading-none">
@@ -83,7 +83,7 @@ export default async function Page({
                 </div>
               </div>
               <div className="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all">
-                <IdCardIcon className="mt-px h-5 w-5" />
+                <IdCardIcon className="mt-px h-5 w-5 text-amber-500" />
                 <div className="space-y-1">
                   <p className="text-sm text-muted-foreground">RFC</p>
                   <p className="text-sm font-medium leading-none">
@@ -92,7 +92,7 @@ export default async function Page({
                 </div>
               </div>
               <div className="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all">
-                <MailIcon className="mt-px h-5 w-5" />
+                <MailIcon className="mt-px h-5 w-5 text-amber-500" />
                 <div className="space-y-1">
                   <p className="text-sm text-muted-foreground">
                     Correo Electrónico
@@ -103,7 +103,7 @@ export default async function Page({
                 </div>
               </div>
               <div className="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all">
-                <PhoneIcon className="mt-px h-5 w-5" />
+                <PhoneIcon className="mt-px h-5 w-5 text-amber-500" />
                 <div className="space-y-1">
                   <p className="text-sm text-muted-foreground">Teléfono</p>
                   <p className="text-sm font-medium leading-none">
@@ -126,7 +126,7 @@ export default async function Page({
             <CardContent className="grid gap-4 lg:grid-cols-2 grid-cols-1">
               {/*  Domicilio del Predio*/}
               <div className="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all">
-                <HomeIcon className="mt-px h-5 w-5" />
+                <HomeIcon className="mt-px h-5 w-5 text-amber-500" />
                 <div className="space-y-1">
                   <p className="text-sm text-muted-foreground">
                     Domicilio del Predio
@@ -139,7 +139,7 @@ export default async function Page({
               </div>
               {/*  Clave Catastral*/}
               <div className="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all">
-                <ScaleIcon className="mt-px h-5 w-5" />
+                <ScaleIcon className="mt-px h-5 w-5 text-amber-500" />
                 <div className="space-y-1">
                   <p className="text-sm text-muted-foreground">
                     Clave Catastral
@@ -151,7 +151,7 @@ export default async function Page({
               </div>
               {/*  Valor Catastral*/}
               <div className="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all">
-                <DollarSignIcon className="mt-px h-5 w-5" />
+                <DollarSignIcon className="mt-px h-5 w-5 text-amber-500" />
                 <div className="space-y-1">
                   <p className="text-sm text-muted-foreground">
                     Valor Catastral
@@ -163,7 +163,7 @@ export default async function Page({
               </div>
               {/*  Superificie de Terreno*/}
               <div className="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all">
-                <BuildingIcon className="mt-px h-5 w-5" />
+                <BuildingIcon className="mt-px h-5 w-5 text-amber-500" />
                 <div className="space-y-1">
                   <p className="text-sm text-muted-foreground">
                     Superificie de Terreno
@@ -175,7 +175,7 @@ export default async function Page({
               </div>
               {/*  Superficie de Construccion*/}
               <div className="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all">
-                <PrinterIcon className="mt-px h-5 w-5" />
+                <PrinterIcon className="mt-px h-5 w-5 text-amber-500" />
                 <div className="space-y-1">
                   <p className="text-sm text-muted-foreground">
                     Superficie de Construccion
@@ -187,7 +187,7 @@ export default async function Page({
               </div>
               {/*  Uso del Predio*/}
               <div className="-mx-2 flex items-start space-x-4 rounded-md p-2 transition-all">
-                <KeyIcon className="mt-px h-5 w-5" />
+                <KeyIcon className="mt-px h-5 w-5 text-amber-500" />
                 <div className="space-y-1">
                   <p className="text-sm text-muted-foreground">
                     Uso del Predio
@@ -204,8 +204,14 @@ export default async function Page({
           <EstadoCuentaCard predio={predio} />
         </div>
       </div>
-      <Script strategy="afterInteractive" src="https://multicobros.banorte.com/orquestador/resources/js/jquery-3.3.1.js" />
-      <Script strategy="afterInteractive" src="https://multicobros.banorte.com/orquestador/lightbox/checkoutV2.js" />
+      <Script
+        strategy="afterInteractive"
+        src="https://multicobros.banorte.com/orquestador/resources/js/jquery-3.3.1.js"
+      />
+      <Script
+        strategy="afterInteractive"
+        src="https://multicobros.banorte.com/orquestador/lightbox/checkoutV2.js"
+      />
     </section>
   );
 };
