@@ -6,6 +6,7 @@ import "./globals.css";
 import NavMenu from "@/components/NavMenu";
 import FooterSection from "@/components/Footer";
 import Head from "next/head";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -21,6 +22,11 @@ export const metadata: Metadata = {
   description: "Paga tu predial en linea",
 };
 
+export const viewport = {
+  width: 1,
+  themeColor: [{ media: "(prefers-color-scheme: light)", color: "white" }],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -28,15 +34,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body
-        className={cn(
-          "font-sans min-h-screen bg-background antialiased",
-          fontSans.variable,
-        )}
-      >
-        <NavMenu />
-        {children}
-        <FooterSection />
+      <body className={cn("font-sans antialiased", fontSans.variable)}>
+        <ThemeProvider attribute="class" defaultTheme="light">
+          <NavMenu />
+          <main>{children}</main>
+          <FooterSection />
+        </ThemeProvider>
       </body>
     </html>
   );
